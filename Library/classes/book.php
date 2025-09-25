@@ -54,4 +54,35 @@ class BOOK extends Database {
         }
     }
 
+    public function getBookById($id) {
+        $sql = "SELECT * FROM book WHERE id = :id";
+        $query = $this->connect()->prepare($sql);
+        $query->bindParam(':id', $id);
+        if ($query->execute()) {
+            return $query->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return null;
+        }
+    }
+
+    public function updateBook() {
+        $sql = "UPDATE book SET title = :title, author = :author, genre = :genre, publication_year = :publication_year, publisher = :publisher, copies = :copies WHERE id = :id";
+        $query = $this->connect()->prepare($sql);
+        $query->bindParam(':id', $this->id);
+        $query->bindParam(':title', $this->title);
+        $query->bindParam(':author', $this->author);
+        $query->bindParam(':genre', $this->genre);
+        $query->bindParam(':publication_year', $this->publication_year);
+        $query->bindParam(':publisher', $this->publisher);
+        $query->bindParam(':copies', $this->copies);
+        return $query->execute();
+    }
+
+    public function deleteBook($id) {
+        $sql = "DELETE FROM book WHERE id = :id";
+        $query = $this->connect()->prepare($sql);
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
+
     }
