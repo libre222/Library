@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef3f8; 
+    color: #2c3e50;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #1e3a8a; /* deep blue heading */
+    margin-bottom: 20px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.field label {
+    min-width: 120px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #fdfdfd;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 6px rgba(30, 58, 138, 0.3);
+    outline: none;
+}
+
+span.error-message {
+    color: #d32f2f;
+    font-size: 14px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #2563eb; 
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+    background-color: #1e40af; 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.error-msg {
+    color: #b71c1c;
+    text-align: center;
+    background-color: #ffebee; 
