@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '/classes/database.php';
-require_once __DIR__ . '/classes/book.php';
-
+require_once '../classes/book.php';
 $bookObj = new BOOK();
 
 $title = $genre = '';
@@ -19,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Books</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="viewbookstyle.css">
     <style>
         .error-message {
             color: red;
@@ -28,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     </style>
 </head>
 <body>
-  <h2>Search Books</h2>
+  <h2>LIST OF BOOKS</h2>
    <form action="" method="get">
         <label for="title">Search Title:</label>
          <input type="text" id="title" name="title" value="<?= $title ?>">
@@ -41,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             </select>
             <button type="submit">Search</button>
     </form>
-        <h2>View Books</h2>
         <button><a href="addbook.php" class="add-book-btn">Add New Book</a></button>
         <table border=1>
             <tr>
@@ -52,6 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 <th>Publication Year</th>
                 <th>Publisher</th>
                 <th>Copies</th>
+                <th>Action</th>
+                
             </tr>
             <?php
             $no = 1;
@@ -65,6 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 <td><?= $book['publication_year']; ?></td>
                 <td><?= $book['publisher']; ?></td>
                 <td><?= $book['copies']; ?></td>
+                <td>
+                    <a href="editbook.php?id=<?= $book['id']; ?>" class="edit-btn">Edit</a>
+                    <a href="deletebook.php?id=<?= $book['id']; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this book?');">Delete</a>
+                </td>
             </tr>
             <?php } ?>
         </table>
