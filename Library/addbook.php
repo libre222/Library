@@ -146,6 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid) {
             <span class="error-message"><?= $error['copies'] ?? '' ?></span>
         </div>
         <button type="submit">Add Book</button>
+        <a href="viewbook.php" class="button-link">View Books</a>
          </form>
 </body>
 </html>
